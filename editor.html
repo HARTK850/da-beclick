@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עורך חידונים - דע בקליק</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/editor.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="page-title">צור/ערוך חידון</h1>
+            <button class="back-btn" onclick="goHome()">חזרה לדף הבית</button>
+        </header>
+
+        <div class="editor-layout">
+            <div class="question-editor">
+                <div class="editor-section">
+                    <h2>יצירת שאלה חדשה</h2>
+                    
+                    <div class="question-type-selector">
+                        <div class="radio-group">
+                            <input type="radio" id="normal" name="questionType" value="normal" checked>
+                            <label for="normal">שאלה רגילה</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="image" name="questionType" value="image">
+                            <label for="image">שאלה עם תמונה</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="video" name="questionType" value="video">
+                            <label for="video">שאלה עם וידאו</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="audio" name="questionType" value="audio">
+                            <label for="audio">שאלה עם שמע</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="poll" name="questionType" value="poll">
+                            <label for="poll">סקר</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="questionText">תוכן השאלה:</label>
+                        <textarea id="questionText" placeholder="הזן את השאלה כאן..."></textarea>
+                    </div>
+
+                    <div class="media-upload" id="mediaUpload" style="display: none;">
+                        <input type="file" id="mediaFile" accept="image/*,video/*,audio/*">
+                        <input type="url" id="mediaUrl" placeholder="או הזן כתובת URL">
+                        <button type="button" onclick="uploadMedia()">העלה קובץ</button>
+                    </div>
+
+                    <div class="answers-section">
+                        <h3>אפשרויות תשובה:</h3>
+                        <div id="answersContainer">
+                            <div class="answer-item">
+                                <input type="text" class="answer-input" placeholder="תשובה 1">
+                                <input type="checkbox" class="correct-answer">
+                                <label>נכונה</label>
+                                <button type="button" class="remove-answer" onclick="removeAnswer(this)">✕</button>
+                            </div>
+                            <div class="answer-item">
+                                <input type="text" class="answer-input" placeholder="תשובה 2">
+                                <input type="checkbox" class="correct-answer">
+                                <label>נכונה</label>
+                                <button type="button" class="remove-answer" onclick="removeAnswer(this)">✕</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-answer-btn" onclick="addAnswer()">➕ הוסף אפשרות תשובה</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timer">טיימר (שניות):</label>
+                        <div class="timer-input">
+                            <button type="button" onclick="adjustTimer(-5)">-</button>
+                            <input type="number" id="timer" value="30" min="5" max="300">
+                            <button type="button" onclick="adjustTimer(5)">+</button>
+                        </div>
+                    </div>
+
+                    <button class="add-question-btn" onclick="addQuestion()">הוסף שאלה</button>
+                </div>
+
+                <div class="ai-section">
+                    <h2>קבל הצעות AI</h2>
+                    <div class="ai-form">
+                        <input type="text" id="aiTopic" placeholder="נושא (למשל: היסטוריה ישראלית)">
+                        <input type="number" id="aiCount" value="5" min="1" max="20" placeholder="מספר שאלות">
+                        <button onclick="generateAIQuestions()">צור שאלות</button>
+                    </div>
+                    <div id="aiResults" class="ai-results"></div>
+                </div>
+            </div>
+
+            <div class="questions-list">
+                <h2>רשימת שאלות</h2>
+                <div id="questionsList" class="questions-container"></div>
+                
+                <div class="quiz-actions">
+                    <button class="action-btn save-btn" onclick="saveQuiz()">שמור חידון</button>
+                    <button class="action-btn load-btn" onclick="loadQuiz()">טען חידון</button>
+                    <button class="action-btn clear-btn" onclick="clearQuiz()">נקה חידון</button>
+                    <button class="action-btn start-btn" onclick="startQuiz()">התחל חידון</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="loadQuizFile" accept=".json" style="display: none;">
+    
+    <script src="scripts/main.js"></script>
+    <script src="scripts/editor.js"></script>
+</body>
+</html>

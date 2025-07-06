@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דע בקליק - ידעת, והקלקת, תאמין</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="image_40ab22.png" alt="דע בקליק" class="logo animated-logo">
+            </div>
+            <h1 class="slogan">ידעת, והקלקת, תאמין.</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="action-buttons">
+                <button class="action-btn create-btn" onclick="goToEditor()">
+                    <div class="btn-icon">➕</div>
+                    <div class="btn-text">צור חידון חדש</div>
+                </button>
+                
+                <button class="action-btn play-btn" onclick="goToPlayer()">
+                    <div class="btn-icon">▶️</div>
+                    <div class="btn-text">הפעל חידון קיים</div>
+                </button>
+            </div>
+        </main>
+
+        <div class="background-animation">
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape2"></div>
+            <div class="floating-shape shape3"></div>
+            <div class="floating-shape shape4"></div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+</html>

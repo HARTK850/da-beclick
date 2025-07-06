@@ -1,0 +1,341 @@
+/* קובץ CSS ראשי */
+:root {
+    --primary-purple: #8B5CF6;
+    --primary-pink: #EC4899;
+    --primary-turquoise: #06B6D4;
+    --primary-orange: #F59E0B;
+    --accent-yellow: #FCD34D;
+    --success-green: #10B981;
+    --warning-red: #EF4444;
+    --error-red: #DC2626;
+    
+    --neutral-50: #F9FAFB;
+    --neutral-100: #F3F4F6;
+    --neutral-200: #E5E7EB;
+    --neutral-300: #D1D5DB;
+    --neutral-400: #9CA3AF;
+    --neutral-500: #6B7280;
+    --neutral-600: #4B5563;
+    --neutral-700: #374151;
+    --neutral-800: #1F2937;
+    --neutral-900: #111827;
+
+    --gradient-primary: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+    --gradient-secondary: linear-gradient(135deg, var(--primary-turquoise), var(--primary-orange));
+    --gradient-accent: linear-gradient(135deg, var(--accent-yellow), var(--primary-orange));
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    --border-radius: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    
+    --font-family: 'Assistant', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    --spacing-20: 5rem;
+    --spacing-24: 6rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--neutral-800);
+    background: var(--gradient-primary);
+    min-height: 100vh;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-4);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* כפתורים */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-3) var(--spacing-6);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+.btn-accent {
+    background: var(--gradient-accent);
+    color: var(--neutral-800);
+}
+
+.btn-success {
+    background: var(--success-green);
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning-red);
+    color: white;
+}
+
+/* כרטיסים */
+.card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* טפסים */
+.form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 600;
+    color: var(--neutral-700);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    transition: all 0.2s ease;
+    direction: rtl;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* אנימציות */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-2);
+    }
+    
+    .btn {
+        padding: var(--spacing-2) var(--spacing-4);
+        font-size: var(--font-size-sm);
+    }
+    
+    .card {
+        padding: var(--spacing-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-1);
+    }
+    
+    .card {
+        padding: var(--spacing-3);
+    }
+}
+
+/* עזרים */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-4 {
+    gap: var(--spacing-4);
+}
+
+.gap-6 {
+    gap: var(--spacing-6);
+}
+
+.mt-4 {
+    margin-top: var(--spacing-4);
+}
+
+.mb-4 {
+    margin-bottom: var(--spacing-4);
+}
+
+.p-4 {
+    padding: var(--spacing-4);
+}
+
+.rounded {
+    border-radius: var(--border-radius);
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}

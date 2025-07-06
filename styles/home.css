@@ -1,0 +1,229 @@
+/* עיצוב דף הבית */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-12);
+    position: relative;
+    z-index: 10;
+}
+
+.logo-container {
+    margin-bottom: var(--spacing-6);
+}
+
+.logo {
+    max-width: 300px;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    transition: transform 0.3s ease;
+}
+
+.animated-logo {
+    animation: pulse 3s infinite;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.slogan {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: var(--spacing-4) 0;
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-8);
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeIn 1s ease-out 1s both;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    background: white;
+    border: none;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.action-btn:hover::before {
+    opacity: 0.1;
+}
+
+.action-btn:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.action-btn:active {
+    transform: translateY(-4px);
+}
+
+.btn-icon {
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--spacing-4);
+    position: relative;
+    z-index: 2;
+}
+
+.btn-text {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--neutral-800);
+    position: relative;
+    z-index: 2;
+}
+
+.create-btn .btn-icon {
+    color: var(--primary-purple);
+}
+
+.play-btn .btn-icon {
+    color: var(--primary-turquoise);
+}
+
+/* אנימציות רקע */
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape1 {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-purple);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape2 {
+    width: 120px;
+    height: 120px;
+    background: var(--primary-pink);
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.shape3 {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-turquoise);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.shape4 {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-orange);
+    top: 30%;
+    right: 30%;
+    animation-delay: 3s;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    .action-buttons {
+        gap: var(--spacing-4);
+    }
+    
+    .action-btn {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .btn-icon {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .btn-text {
+        font-size: var(--font-size-lg);
+    }
+    
+    .slogan {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .logo {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons {
+        flex-direction: column;
+        gap: var(--spacing-3);
+    }
+    
+    .action-btn {
+        width: 180px;
+        height: 120px;
+    }
+    
+    .btn-icon {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-2);
+    }
+    
+    .btn-text {
+        font-size: var(--font-size-base);
+    }
+    
+    .slogan {
+        font-size: var(--font-size-xl);
+    }
+    
+    .logo {
+        max-width: 150px;
+    }
+}

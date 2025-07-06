@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפעלת חידון - דע בקליק</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/player.css">
+</head>
+<body>
+    <div class="player-container">
+        <!-- מסך פתיחה -->
+        <div id="openingScreen" class="opening-screen">
+            <video id="openingVideo" autoplay muted>
+                <source src="מסך וילון אדום2 ().mp4" type="video/mp4">
+                סרטון הפתיחה לא נמצא
+            </video>
+            <div class="opening-overlay">
+                <div class="countdown" id="countdown">3</div>
+            </div>
+        </div>
+
+        <!-- מסך החידון -->
+        <div id="quizScreen" class="quiz-screen" style="display: none;">
+            <div class="curtain-background"></div>
+            
+            <div class="quiz-content">
+                <div class="question-header">
+                    <div class="question-number">שאלה <span id="currentQuestionNum">1</span> מתוך <span id="totalQuestions">10</span></div>
+                    <div class="double-bet" id="doubleBet" style="display: none;">
+                        <span class="double-bet-text">🎯 הימור כפול!</span>
+                    </div>
+                </div>
+
+                <div class="question-content">
+                    <h2 id="questionText" class="question-text"></h2>
+                    
+                    <div id="mediaContainer" class="media-container" style="display: none;">
+                        <img id="questionImage" class="question-media" style="display: none;">
+                        <video id="questionVideo" class="question-media" controls style="display: none;">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <audio id="questionAudio" class="question-media" controls style="display: none;">
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div id="answersContainer" class="answers-container"></div>
+                </div>
+
+                <div class="timer-container">
+                    <div class="timer-circle" id="timerCircle">
+                        <div class="timer-text" id="timerText">30</div>
+                    </div>
+                </div>
+
+                <div class="ivr-instructions">
+                    <p>📞 הזן את תשובתך בטלפון: הקש את מספר התשובה</p>
+                    <div id="responseIndicator" class="response-indicator"></div>
+                </div>
+            </div>
+
+            <div class="controls-overlay">
+                <div class="keyboard-hints">
+                    <div class="hint">F1: טבלת מובילים</div>
+                    <div class="hint">F4: עצור/התחל טיימר</div>
+                    <div class="hint">F5: שאלה הבאה</div>
+                    <div class="hint">F6: נגן/עצור מדיה</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- טבלת מובילים -->
+        <div id="leaderboard" class="leaderboard" style="display: none;">
+            <h2>טבלת מובילים</h2>
+            <div id="leaderboardContent" class="leaderboard-content">
+                <div class="team-score">
+                    <span class="team-name">קבוצה 1</span>
+                    <span class="team-points">150</span>
+                </div>
+                <div class="team-score">
+                    <span class="team-name">קבוצה 2</span>
+                    <span class="team-points">120</span>
+                </div>
+                <div class="team-score">
+                    <span class="team-name">קבוצה 3</span>
+                    <span class="team-points">90</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- מסך סיום -->
+        <div id="endScreen" class="end-screen" style="display: none;">
+            <div class="victory-animation">
+                <h1>🎉 מזל טוב! 🎉</h1>
+                <div class="winner-announcement">
+                    <h2 id="winnerName">קבוצה 1</h2>
+                    <p>הקבוצה המנצחת!</p>
+                </div>
+                <div class="final-leaderboard" id="finalLeaderboard"></div>
+                <button class="play-again-btn" onclick="goHome()">חזרה לדף הבית</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/player.js"></script>
+</body>
+</html>
